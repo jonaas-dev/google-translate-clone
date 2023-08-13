@@ -9,15 +9,15 @@ import { SectionType } from './types.d'
 import { TextArea } from './components/TextArea.tsx'
 import { useEffect } from 'react'
 import { translate } from './services/translate.ts'
+import { useDebounce } from './hooks/useDebounce.ts'
 
 function App () {
   const { fromLanguage, toLanguage, fromText, result, loading, setFromLanguage, setToLanguage, setFromText, setResult, interchangeLanguages } = useStore()
 
+  const debounceFromText = useDebounce(fromText, 500)
+
   useEffect(() => {
-    console.log(fromText, 'useEffect')
-    if (fromText === '') {
-      return
-    }
+    if (debounceFromText === '') return
 
     translate({ fromLanguage, toLanguage, text: fromText })
       .then(result => {
