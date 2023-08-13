@@ -2,15 +2,14 @@ export const SUPPORTED_LANGUAGES = {
   en: 'English',
   es: 'Spanish',
   fr: 'French',
-  de: 'German',
-  it: 'Italian',
-  pt: 'Portuguese',
-  ru: 'Russian',
-  zh: 'Chinese',
-  ja: 'Japanese',
-  ar: 'Arabic',
-  hi: 'Hindi',
-  tr: 'Turkish'
+  de: 'German'
+}
+
+export const VOICE_FOR_LANGUAGES = {
+  en: 'en-GB',
+  es: 'es-MX',
+  fr: 'fr-FR',
+  de: 'de-DE'
 }
 
 export const AUTO_LANGUAGE = 'auto'
