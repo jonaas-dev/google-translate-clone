@@ -7,9 +7,26 @@ import { ArrowsIcon } from './components/icons.tsx'
 import { LanguageSelector } from './components/LanguageSelector.tsx'
 import { SectionType } from './types.d'
 import { TextArea } from './components/TextArea.tsx'
+import { useEffect } from 'react'
+import { translate } from './services/translate.ts'
 
 function App () {
   const { fromLanguage, toLanguage, fromText, result, loading, setFromLanguage, setToLanguage, setFromText, setResult, interchangeLanguages } = useStore()
+
+  useEffect(() => {
+    console.log(fromText, 'useEffect')
+    if (fromText === '') {
+      return
+    }
+
+    translate({ fromLanguage, toLanguage, text: fromText })
+      .then(result => {
+        if (result == null) return
+        setResult(result)
+      })
+      .catch(() => { setResult('Error') })
+  }, [fromText, fromLanguage, toLanguage])
+
   return (
       <Container fluid>
           <h1>Google Translate</h1>
