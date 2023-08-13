@@ -5,7 +5,7 @@ export const SUPPORTED_LANGUAGES = {
   de: 'German'
 }
 
-export const VOICE_FOR_LANGUAGES = {
+export const VOICE_FOR_LANGUAGE = {
   en: 'en-GB',
   es: 'es-MX',
   fr: 'fr-FR',

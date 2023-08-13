@@ -1,6 +1,6 @@
 import { useReducer } from 'react'
 import { AUTO_LANGUAGE } from '../constants'
-import { type FromLanguage, type Language, type Action, type State } from '../types.d'
+import { type FromLanguage, type Language, type Action, type State } from '../types'
 
 // 1. Create a initialState
 const initialState: State = {
@@ -77,6 +77,7 @@ function reducer (state: State, action: Action) {
 }
 
 export function useStore () {
+  // 3. usar el hook useReducer
   const [{
     fromLanguage,
     toLanguage,
